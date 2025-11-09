@@ -24,26 +24,5 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('123456'),
             'role' => 'super_admin',
         ]);
-
-        User::create([
-            'name' => 'Admin User',
-            'email' => 'admin@yopmail.com',
-            'email_verified_at' => now(),
-            'password' => Hash::make('123456'),
-            'role' => 'admin',
-        ]);
-
-        User::create([
-            'name' => 'Member User',
-            'email' => 'member@yopmail.com',
-            'email_verified_at' => now(),
-            'password' => Hash::make('123456'),
-            'role' => 'member',
-        ]);
-
-        Company::insert([
-            ['name' => 'Tech Corp', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Design Studio', 'created_at' => now(), 'updated_at' => now()],
-        ]);
     }
 }
