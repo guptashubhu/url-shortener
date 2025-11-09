@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use App\Models\Company;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,9 +17,33 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::create([
+            'name' => 'Super Admin',
+            'email' => 'superadmin@yopmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('123456'),
+            'role' => 'super_admin',
+        ]);
+
+        User::create([
+            'name' => 'Admin User',
+            'email' => 'admin@yopmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('123456'),
+            'role' => 'admin',
+        ]);
+
+        User::create([
+            'name' => 'Member User',
+            'email' => 'member@yopmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('123456'),
+            'role' => 'member',
+        ]);
+
+        Company::insert([
+            ['name' => 'Tech Corp', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Design Studio', 'created_at' => now(), 'updated_at' => now()],
+        ]);
     }
 }
